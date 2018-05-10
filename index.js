@@ -10,7 +10,6 @@ var tokens = {};
 var sessions = {};
 
 
-
 //Start the SDK
 GiApp = new GiClient(config.gi.name, config.gi.secret, config.gi.host);
 GiApp.connect();
