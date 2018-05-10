@@ -1,18 +1,9 @@
 /**
  * Web based GI Client
- *
- * 
  */
-const GiClient = require('./sdk/index.js');
+const GiClient = require('gi-sdk-nodejs');
 
-//Configuration
-let name   = 'test';                       // Must be a client name matched in app/Config/config.js
-let secret = 'NrCgyKqvyB';                 // The client secret found in your config.js file
-let host   = 'http://localhost:3000';      // Host name of the server, the GI server must be running to get a connection
-
-//
-let server_port = 7000;
-
+const config = require('./config.js');
 
 //
 var tokens = {};
@@ -21,7 +12,7 @@ var sessions = {};
 
 
 //Start the SDK
-GiApp = new GiClient(name, secret, host);
+GiApp = new GiClient(config.gi.name, config.gi.secret, config.gi.host);
 GiApp.connect();
 
 GiApp.on('connect', () => {
@@ -77,8 +68,8 @@ this.object = require('http').createServer();
 let io = require('socket.io')(this.object);
 
 try {
-  this.object.listen(server_port, () => {
-    console.log('Listening to port', server_port);
+  this.object.listen(config.server.port, () => {
+    console.log('Listening to port', config.server.port);
   });
 }
 catch(err) {
