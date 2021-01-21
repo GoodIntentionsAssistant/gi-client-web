@@ -20,7 +20,7 @@
   "scripts": {},
   "dependencies": {
     "gi-sdk-nodejs": "0.0.4",
-    "socket.io": "^2.1.0"
+    "socket.io": "^2.4.0"
   },
   "keywords": []
 }
